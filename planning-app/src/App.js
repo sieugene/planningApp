@@ -1,16 +1,19 @@
 import React from 'react';
-import {BrowserRouter} from "react-router-dom";
 import 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
+import Navbar from "./Components/layout/Navbar";
+import DashBoard from "./Components/dashboard/Dashboard";
+import {Route} from "react-router-dom";
+import ProjectDetail from "./Components/projects/ProjectDetail";
 
 
-function App() {
+function App(props) {
   return (
-      <BrowserRouter>
         <div className="App">
-            <h1>Planning App</h1>
+            <Navbar/>
+            <Route exact path='/' render={()=>(<DashBoard/>)}/>
+            <Route path='/project/:id' render={(props)=>(<ProjectDetail {...props}/>)}/>
         </div>
-      </BrowserRouter>
   );
 }
 
