@@ -5,6 +5,8 @@ import Navbar from "./Components/layout/Navbar";
 import DashBoard from "./Components/dashboard/Dashboard";
 import {Route} from "react-router-dom";
 import ProjectDetail from "./Components/projects/ProjectDetail";
+import SignIn from "./Components/auth/SignIn";
+import SignUp from "./Components/auth/SignUp";
 
 
 function App(props) {
@@ -13,6 +15,8 @@ function App(props) {
             <Navbar/>
             <Route exact path='/' render={()=>(<DashBoard/>)}/>
             <Route path='/project/:id' render={(props)=>(<ProjectDetail {...props}/>)}/>
+            <Route path='/login' render={()=>(<SignIn/>)}/>
+            <Route path='/signup' render={()=>(<SignUp/>)}/>
         </div>
   );
 }
