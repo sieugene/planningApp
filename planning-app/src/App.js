@@ -6,8 +6,8 @@ import {Route} from "react-router-dom";
 import ProjectDetail from "./Components/projects/ProjectDetail";
 import SignIn from "./Components/auth/SignIn";
 import SignUp from "./Components/auth/SignUp";
-import CreateProject from "./Components/projects/CreateProject";
 import DashboardContainer from "./Components/dashboard/DashboardContainer";
+import CreateProjectContainer from "./Components/projects/CreateProjectContainer";
 
 
 function App(props) {
@@ -18,7 +18,7 @@ function App(props) {
             <Route path='/project/:id' render={(props)=>(<ProjectDetail {...props}/>)}/>
             <Route path='/login' render={()=>(<SignIn/>)}/>
             <Route path='/signup' render={()=>(<SignUp/>)}/>
-            <Route path='/create' render={()=>(<CreateProject/>)}/>
+            <Route path='/create' render={()=>(<CreateProjectContainer/>)}/>
 
         </div>
   );

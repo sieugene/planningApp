@@ -5,10 +5,10 @@ import CreateProjectForm from "./CreateProjectReduxForm";
 
 const CreateProject = (props) => {
     let onSubmit = (values) =>{
-        console.log(values)
+        props.createProject(values)
     }
     return(
-        <CreateProjectForm onSubmit={onSubmit} />
+        <CreateProjectForm onSubmit={onSubmit}/>
     )
 }
 

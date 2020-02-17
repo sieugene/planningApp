@@ -1,6 +1,7 @@
 import React from 'react';
 import SignedInLinks from "./SignedInLinks";
 import SignedOutLinks from "./SignedOutLinks";
+import {NavLink} from "react-router-dom";
 
 const Navbar = (props) => {
     return(
@@ -8,7 +9,7 @@ const Navbar = (props) => {
             <nav>
                 <div className="container">
                     <div className="nav-wrapper">
-                        <a href="/" className="brand-logo">Logo</a>
+                        <NavLink to="/" className="brand-logo">Logo</NavLink>
                         <SignedInLinks/>
                         <SignedOutLinks/>
                     </div>

@@ -1,3 +1,5 @@
+const CREATE_PROJECT = 'CREATE_PROJECT'
+
 let initialState = {
     projects: [
         {
@@ -18,10 +20,21 @@ let initialState = {
 
 const projectReducer = (state = initialState, action) => {
     switch (action.type) {
+        case CREATE_PROJECT:
+        return {
+            ...state,
+            projects: [...state.projects, action.project]
+        }
         default:
             return state
     }
 }
 
+
+export const createProjectAC = (project) => {
+    return{
+        type: CREATE_PROJECT, project
+    }
+}
 
 export default projectReducer
