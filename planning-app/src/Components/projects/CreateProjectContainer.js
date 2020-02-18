@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from "react-redux";
 import CreateProject from "./CreateProject";
-import {createProjectAC} from "../../Redux/ProjectReducer";
+import {createProjectAC, createProjectThunkCreator} from "../../Redux/ProjectReducer";
 
 
 const CreateProjectContainer = (props) => {
@@ -19,5 +19,6 @@ let mapDispatchToProps = (state) => {
 
 
 export default connect(mapDispatchToProps,{
-    createProject: createProjectAC
+    createProject: createProjectAC,
+    createProjectThunk: createProjectThunkCreator
 })(CreateProjectContainer)

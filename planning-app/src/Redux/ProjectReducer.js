@@ -1,3 +1,5 @@
+import {getFirestore} from "redux-firestore";
+
 const CREATE_PROJECT = 'CREATE_PROJECT'
 
 let initialState = {
@@ -21,10 +23,10 @@ let initialState = {
 const projectReducer = (state = initialState, action) => {
     switch (action.type) {
         case CREATE_PROJECT:
-        return {
-            ...state,
-            projects: [...state.projects, action.project]
-        }
+            return {
+                ...state,
+                projects: [...state.projects, action.project]
+            }
         default:
             return state
     }
@@ -32,8 +34,26 @@ const projectReducer = (state = initialState, action) => {
 
 
 export const createProjectAC = (project) => {
-    return{
+    return {
         type: CREATE_PROJECT, project
+    }
+}
+
+export const createProjectThunkCreator = (project) => {
+    return (dispatch, getState, {getFirebase, getFirestore}) => {
+        debugger
+        const firestore = getFirestore();
+        firestore.collection('projects').add({
+            ...project,
+            authorFirstName: 'net',
+            authorLastName: 'test',
+            authorId: 12345,
+            createdAt: new Date()
+        }).then(() => {
+            dispatch(createProjectAC(project));
+        }).catch((err) => {
+            console.log(err)
+        })
     }
 }
 

@@ -1,21 +1,35 @@
-import {applyMiddleware, combineReducers, createStore} from "redux";
+import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import thunkMiddleware from "redux-thunk";
 import { reducer as formReducer } from 'redux-form'
 import authReducer from "./AuthReducer";
 import projectReducer from "./ProjectReducer";
-
+import {firebaseReducer} from "react-redux-firebase";
+import fbConfig from './../config/fbConfig'
+import firebase from 'firebase/app'
+import {createFirestoreInstance, firestoreReducer, getFirestore, reduxFirestore} from "redux-firestore";
 
 
 let reducers = combineReducers({
     form: formReducer,
     auth: authReducer,
-    project: projectReducer
+    project: projectReducer,
+    firebase: firebaseReducer,
+     firestore: firestoreReducer
+
 })
 
+let store = createStore(reducers,
+    compose(applyMiddleware(thunkMiddleware.withExtraArgument({getFirestore})),
+            reduxFirestore(firebase, fbConfig)
+        )
+);
 
-
-let store = createStore(reducers,applyMiddleware(thunkMiddleware));
-
+export const rrfProps = {
+    firebase,
+    config: fbConfig,
+    dispatch: store.dispatch,
+    createFirestoreInstance
+}
 window.store = store;
 
 export default store

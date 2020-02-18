@@ -5,7 +5,7 @@ import CreateProjectForm from "./CreateProjectReduxForm";
 
 const CreateProject = (props) => {
     let onSubmit = (values) =>{
-        props.createProject(values)
+        props.createProjectThunk(values)
     }
     return(
         <CreateProjectForm onSubmit={onSubmit}/>
