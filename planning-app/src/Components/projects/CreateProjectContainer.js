@@ -2,23 +2,25 @@ import React from 'react'
 import {connect} from "react-redux";
 import CreateProject from "./CreateProject";
 import {createProjectAC, createProjectThunkCreator} from "../../Redux/ProjectReducer";
+import {compose} from "redux";
+
 
 
 const CreateProjectContainer = (props) => {
-    return(
+    return (
         <CreateProject {...props}/>
     )
 }
 
 
-let mapDispatchToProps = (state) => {
-    return{
-        projects: state.project.projects
+let mapStateToProps = (state) => {
+    return {
+
     }
 }
-
-
-export default connect(mapDispatchToProps,{
-    createProject: createProjectAC,
-    createProjectThunk: createProjectThunkCreator
-})(CreateProjectContainer)
+export default compose(
+    connect(mapStateToProps, {
+        createProject: createProjectAC,
+        createProjectThunk: createProjectThunkCreator
+    })
+)(CreateProjectContainer)

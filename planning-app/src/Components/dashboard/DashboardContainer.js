@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import DashBoard from "./Dashboard";
+import {compose} from "redux";
+import {firestoreConnect} from "react-redux-firebase";
 
 
 const DashboardContainer = (props) => {
@@ -15,9 +17,12 @@ const DashboardContainer = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        projects: state.project.projects
+        projects: state.firestore.ordered.projects
     }
 }
 
 
-export default  connect(mapStateToProps, {})(DashboardContainer)
+export default  compose(
+    connect(mapStateToProps, {}),
+    firestoreConnect([{collection: 'projects'}])
+)(DashboardContainer)

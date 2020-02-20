@@ -1,5 +1,3 @@
-import {getFirestore} from "redux-firestore";
-
 const CREATE_PROJECT = 'CREATE_PROJECT'
 
 let initialState = {
@@ -41,7 +39,6 @@ export const createProjectAC = (project) => {
 
 export const createProjectThunkCreator = (project) => {
     return (dispatch, getState, {getFirebase, getFirestore}) => {
-        debugger
         const firestore = getFirestore();
         firestore.collection('projects').add({
             ...project,
