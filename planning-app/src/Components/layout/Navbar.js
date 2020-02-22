@@ -9,7 +9,7 @@ const Navbar = (props) => {
             <nav>
                 <div className="container">
                     <div className="nav-wrapper">
-                        <NavLink to="/" className="brand-logo">Logo</NavLink>
+                        <NavLink to="/" className="left">Logo</NavLink>
                         <SignedInLinks/>
                         <SignedOutLinks/>
                     </div>

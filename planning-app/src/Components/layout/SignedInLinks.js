@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 
 const SignedInLinks = (props) => {
     return(
-        <ul className="right hide-on-med-and-down">
+        <ul className="right">
            <li><NavLink to='/create'>New Projects</NavLink></li>
            <li><NavLink to='/'>Log out</NavLink></li>
             <li className='btn-floating btn-large waves-effect waves-light red'><NavLink to='/'>NN</NavLink></li>
