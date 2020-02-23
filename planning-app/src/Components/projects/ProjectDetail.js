@@ -8,10 +8,10 @@ const ProjectDetail = (props) => {
     if (!!props.projects) {
         result = props.projects.filter(projects => projects.id === props.match.params.id);
     }
-
+    
     return (
         <div className="container section project-details">
-            {!result ? <div>NO FOUND</div> :
+            {!result || result.length === 0 ? <div>NO FOUND</div> :
                 <div className="card z-depth-0">
                     <div className="card-content black-text">
                         <h4>Author: {result[0].authorFirstName}</h4>
