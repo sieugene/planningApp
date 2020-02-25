@@ -3,7 +3,7 @@ import thunkMiddleware from "redux-thunk";
 import { reducer as formReducer } from 'redux-form'
 import authReducer from "./AuthReducer";
 import projectReducer from "./ProjectReducer";
-import {firebaseReducer} from "react-redux-firebase";
+import {firebaseReducer, getFirebase} from "react-redux-firebase";
 import fbConfig from './../config/fbConfig'
 import firebase from 'firebase/app'
 import {createFirestoreInstance, firestoreReducer, getFirestore, reduxFirestore} from "redux-firestore";
@@ -19,7 +19,7 @@ let reducers = combineReducers({
 })
 
 let store = createStore(reducers,
-    compose(applyMiddleware(thunkMiddleware.withExtraArgument({getFirestore})),
+    compose(applyMiddleware(thunkMiddleware.withExtraArgument({getFirestore,getFirebase})),
             reduxFirestore(firebase, fbConfig)
         )
 );
