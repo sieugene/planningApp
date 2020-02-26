@@ -19,5 +19,5 @@ let mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {
-    authThunk: authThunkCreator
+    authThunk: authThunkCreator,
 })(SignIn);

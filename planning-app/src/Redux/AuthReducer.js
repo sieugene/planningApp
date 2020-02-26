@@ -22,8 +22,14 @@ export const authThunkCreator = (credentials) => {
         }).catch(() => {
             console.log('Some errors in auth')
         })
-
     }
+}
+export const signOutThunkCreator = () => (dispatch) => {
+    firebase.auth().signOut().then( () => {
+        console.log('Sign out Success')
+    }).catch(() => {
+        console.log('Sign out Errors')
+    })
 }
 
 
