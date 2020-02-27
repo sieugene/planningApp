@@ -8,20 +8,29 @@ import SignIn from "./Components/auth/SignIn";
 import SignUp from "./Components/auth/SignUp";
 import DashboardContainer from "./Components/dashboard/DashboardContainer";
 import CreateProjectContainer from "./Components/projects/CreateProjectContainer";
+import {connect} from "react-redux";
 
 
 function App(props) {
-  return (
+    if (!props.isLoadedAuth) {
+        return <div>Loading...</div>
+    }
+    return (
         <div className="App">
             <Navbar/>
-            <Route exact path='/' render={()=>(<DashboardContainer/>)}/>
-            <Route path='/project/:id' render={(props)=>(<ProjectDetail {...props}/>)}/>
-            <Route path='/login' render={()=>(<SignIn/>)}/>
-            <Route path='/signup' render={()=>(<SignUp/>)}/>
-            <Route path='/create' render={()=>(<CreateProjectContainer/>)}/>
-
+            <Route exact path='/' render={() => (<DashboardContainer/>)}/>
+            <Route path='/project/:id' render={(props) => (<ProjectDetail {...props}/>)}/>
+            <Route path='/login' render={() => (<SignIn/>)}/>
+            <Route path='/signup' render={() => (<SignUp/>)}/>
+            <Route path='/create' render={() => (<CreateProjectContainer/>)}/>
         </div>
-  );
+    );
 }
 
-export default App;
+let mapStateToProps = (state) => {
+    return {
+        isLoadedAuth: state.firebase.auth.isLoaded
+    }
+}
+
+export default connect(mapStateToProps, {})(App);

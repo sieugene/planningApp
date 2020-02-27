@@ -1,31 +1,64 @@
 import firebase from 'firebase'
-let initialState = {
+const IS_LOADED = 'IS_LOADED'
+const SET_ERRORS = 'SET_ERRORS'
 
+
+let initialState = {
+    isLoaded: false,
+    errors: {
+
+    }
 }
 
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
+        case IS_LOADED: {
+            return{
+                ...state,
+                isLoaded: action.load
+            }
+        }
+        case SET_ERRORS: {
+            return {
+                ...state,
+                errors: action.err
+            }
+        }
         default:
             return state
     }
 }
 
+const toggleLoadingAC = (load) => {
+    return{
+        type: IS_LOADED, load
+    }
+}
 
+const setErrorsAC = (err) => {
+    return{
+        type: SET_ERRORS,err
+    }
+}
 export const authThunkCreator = (credentials) => {
-    return (dispatch,getFirebase) => {
-        firebase.auth().signInWithEmailAndPassword(
+    return (dispatch, getFirebase) => {
+        dispatch(toggleLoadingAC(true));
+        return firebase.auth().signInWithEmailAndPassword(
             credentials.email,
             credentials.password
-        ).then( () => {
+        ).then((response) => {
             console.log('Auth success')
-        }).catch(() => {
+            dispatch(toggleLoadingAC(false))
+        }).catch((err) => {
             console.log('Some errors in auth')
+            dispatch(toggleLoadingAC(false))
+            dispatch(setErrorsAC(err))
         })
     }
 }
 export const signOutThunkCreator = () => (dispatch) => {
-    firebase.auth().signOut().then( () => {
+    firebase.auth().signOut().then(() => {
         console.log('Sign out Success')
     }).catch(() => {
         console.log('Sign out Errors')
