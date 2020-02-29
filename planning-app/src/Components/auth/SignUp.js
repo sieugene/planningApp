@@ -2,7 +2,7 @@ import React from 'react';
 import SignUpForm from "./SignUpReduxForm";
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
-import {signUpThunkCreator} from "../../Redux/AuthReducer";
+import {signInWithPopupThunkCreator, signUpThunkCreator} from "../../Redux/AuthReducer";
 
 
 const SignUp = (props) => {
@@ -15,6 +15,7 @@ const SignUp = (props) => {
     return (
         <>
         <SignUpForm onSubmit={onSubmit}/>
+        <button onClick={() => {props.signInWithPopupThunk()}}>Sign up with google account</button>
         </>
     )
 }
@@ -26,5 +27,6 @@ let mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps,{
-    signUpThunk:signUpThunkCreator
+    signUpThunk:signUpThunkCreator,
+    signInWithPopupThunk: signInWithPopupThunkCreator
 })(SignUp);

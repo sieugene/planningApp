@@ -1,3 +1,4 @@
+// import firebase from 'firebase'
 import firebase from 'firebase'
 const IS_LOADED = 'IS_LOADED'
 const SET_ERRORS = 'SET_ERRORS'
@@ -81,6 +82,28 @@ export const signUpThunkCreator = (newUser) => {
         }).catch((err) => {
             console.log(err)
         })
+    }
+}
+
+export const signInWithPopupThunkCreator = () => {
+    return (dispatch, getState, {getFirebase,getFirestore}) => {
+        firebase.auth().getRedirectResult().then((result) => {
+            if (result.credential) {
+                // This gives you a Google Access Token.
+                let token = result.credential.accessToken;
+            }
+            let user = result.user;
+        });
+// Start a sign in process for an unauthenticated user.
+        let provider = new firebase.auth.GoogleAuthProvider();
+        provider.addScope('profile');
+        provider.addScope('email');
+        firebase.auth().signInWithPopup(provider).then((result) => {
+            // This gives you a Google Access Token.
+            let token = result.credential.accessToken;
+            // The signed-in user info.
+            let user = result.user;
+        });
     }
 }
 
