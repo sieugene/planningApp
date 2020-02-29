@@ -8,12 +8,12 @@ let SignUpForm = props => {
             <div className="container">
                 <div className="row">
                     <div className="input-field col s6">
-                        <Field placeholder="Placeholder" id="first_name" type="text" component="input"
-                               className="validate" name="first_name"/>
+                        <Field placeholder="Placeholder" id="firstName" type="text" component="input"
+                               className="validate" name="firstName"/>
                         <label htmlFor="first_name">First Name</label>
                     </div>
                     <div className="input-field col s6">
-                        <Field id="last_name" type="text" className="validate" component="input" name="last_name"/>
+                        <Field id="lastName" type="text" className="validate" component="input" name="lastName"/>
                         <label htmlFor="last_name">Last Name</label>
                     </div>
                 </div>

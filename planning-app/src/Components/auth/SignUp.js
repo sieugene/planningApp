@@ -2,17 +2,20 @@ import React from 'react';
 import SignUpForm from "./SignUpReduxForm";
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
+import {signUpThunkCreator} from "../../Redux/AuthReducer";
 
 
 const SignUp = (props) => {
     let onSubmit = (values) => {
-        console.log(values)
+        props.signUpThunk(values)
     }
     if (props.userId) {
         return <Redirect to='/'/>
     }
     return (
+        <>
         <SignUpForm onSubmit={onSubmit}/>
+        </>
     )
 }
 
@@ -22,4 +25,6 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps,{})(SignUp);
+export default connect(mapStateToProps,{
+    signUpThunk:signUpThunkCreator
+})(SignUp);
