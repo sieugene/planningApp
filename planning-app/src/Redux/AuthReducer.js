@@ -1,21 +1,20 @@
 // import firebase from 'firebase'
 import firebase from 'firebase'
+
 const IS_LOADED = 'IS_LOADED'
 const SET_ERRORS = 'SET_ERRORS'
 
 
 let initialState = {
     isLoaded: false,
-    errors: {
-
-    }
+    errors: {}
 }
 
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case IS_LOADED: {
-            return{
+            return {
                 ...state,
                 isLoaded: action.load
             }
@@ -32,14 +31,14 @@ const authReducer = (state = initialState, action) => {
 }
 
 const toggleLoadingAC = (load) => {
-    return{
+    return {
         type: IS_LOADED, load
     }
 }
 
 const setErrorsAC = (err) => {
-    return{
-        type: SET_ERRORS,err
+    return {
+        type: SET_ERRORS, err
     }
 }
 export const authThunkCreator = (credentials) => {
@@ -86,25 +85,21 @@ export const signUpThunkCreator = (newUser) => {
 }
 
 export const signInWithPopupThunkCreator = () => {
-    return (dispatch, getState, {getFirebase,getFirestore}) => {
+    return (dispatch, getState, {getFirebase, getFirestore}) => {
         firebase.auth().getRedirectResult().then((result) => {
             if (result.credential) {
                 // This gives you a Google Access Token.
-                let token = result.credential.accessToken;
+                //let token = result.credential.accessToken;
             }
-            let user = result.user;
+            //let user = result.user;
         });
 // Start a sign in process for an unauthenticated user.
         let provider = new firebase.auth.GoogleAuthProvider();
         provider.addScope('profile');
         provider.addScope('email');
-        firebase.auth().signInWithPopup(provider).then((result) => {
-            // This gives you a Google Access Token.
-            let token = result.credential.accessToken;
-            // The signed-in user info.
-            let user = result.user;
-        });
+        firebase.auth().signInWithPopup(provider).then((result) => {});
     }
 }
+
 
 export default authReducer

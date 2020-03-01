@@ -19,6 +19,11 @@ let SignInForm = props => {
                     </div>
                 </div>
                 <button className='waves-effect red darken-4 btn-small' type="submit">Login</button>
+                <a className='waves-effect green btn-small btn-margin' type="submit"
+                   onClick={() => {
+                       props.changeActive(true)
+                   }}>Quick access
+                </a>
             </div>
         </form>
     )

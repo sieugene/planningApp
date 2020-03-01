@@ -30,6 +30,11 @@ let SignUpForm = props => {
                     </div>
                 </div>
                 <button className='waves-effect red darken-4 btn-small' type="submit">Sign Up</button>
+                <a className='waves-effect green btn-small btn-margin' type="submit"
+                   onClick={() => {
+                       props.changeActive(true)
+                   }}>Quick sign up
+                </a>
             </div>
         </form>
     )
