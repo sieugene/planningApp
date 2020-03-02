@@ -5,7 +5,7 @@ import {NavLink} from "react-router-dom";
 import {connect} from "react-redux";
 
 const Navbar = (props) => {
-    let showLinks = !props.userId ? <SignedOutLinks/> : <SignedInLinks/>
+    let showLinks = !props.userId ? <SignedOutLinks/> : <SignedInLinks profile={props.profile}/>
     return(
         <div className="navbar-fixed">
             <nav>
@@ -21,7 +21,8 @@ const Navbar = (props) => {
 }
 let mapStateToProps = (state) => {
     return {
-        userId: state.firebase.auth.uid
+        userId: state.firebase.auth.uid,
+        profile: state.firebase.profile
     }
 }
 export default connect(mapStateToProps,{})(Navbar)

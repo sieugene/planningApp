@@ -19,18 +19,24 @@ let reducers = combineReducers({
 
 })
 
+
+const rrfConfig = {
+    userProfile: 'users',
+    useFirestoreForProfile: true // Firestore for Profile instead of Realtime DB
+}
 let store = createStore(reducers,
     compose(applyMiddleware(thunkMiddleware.withExtraArgument({getFirestore,getFirebase})),
-            reduxFirestore(firebase, fbConfig)
+            reduxFirestore(fbConfig, rrfConfig)
         )
 );
 
 export const rrfProps = {
     firebase,
-    config: fbConfig,
+    config: rrfConfig,
     dispatch: store.dispatch,
     createFirestoreInstance
 }
+
 window.store = store;
 
 export default store

@@ -4,6 +4,7 @@ import 'firebase/auth';
 import 'firebase/database';
 import 'firebase/storage';
 
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyCEDT5KPNlo2Z-qOu6hoj3nW8ARN0ntSqY",
