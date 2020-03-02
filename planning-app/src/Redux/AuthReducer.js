@@ -25,7 +25,7 @@ const authReducer = (state = initialState, action) => {
         case SET_ERRORS_SIGN_IN: {
             return {
                 ...state,
-                errors: {...state.errors, errorsSignIn: action.err }
+                errors: {...state.errors, errorsSignIn: action.err}
             }
         }
         case SET_ERRORS_SIGN_UP: {

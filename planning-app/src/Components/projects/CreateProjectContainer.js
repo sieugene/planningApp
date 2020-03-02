@@ -5,7 +5,6 @@ import {createProjectAC, createProjectThunkCreator} from "../../Redux/ProjectRed
 import {compose} from "redux";
 
 
-
 const CreateProjectContainer = (props) => {
     return (
         <CreateProject {...props}/>
@@ -15,12 +14,15 @@ const CreateProjectContainer = (props) => {
 
 let mapStateToProps = (state) => {
     return {
-
+        authInfo: state.firebase.auth,
+        profile: state.firebase.profile,
+        isLoaded: state.project.isLoaded,
+        errors: state.project.errors
     }
 }
 export default compose(
     connect(mapStateToProps, {
         createProject: createProjectAC,
-        createProjectThunk: createProjectThunkCreator
+        createProjectThunk: createProjectThunkCreator,
     })
 )(CreateProjectContainer)
