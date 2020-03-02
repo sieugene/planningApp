@@ -6,7 +6,6 @@ import {Redirect} from "react-router-dom";
 import Popup from "./Popup";
 
 
-
 const SignIn = (props) => {
     const [activePopup, changeActive] = useState(false);
     let onSubmit = (values) => {
@@ -18,15 +17,16 @@ const SignIn = (props) => {
     return (
         <>
             {props.isLoaded &&
-                <div className="progress">
-                    <div className="indeterminate"></div>
-                </div>
+            <div className="progress">
+                <div className="indeterminate"></div>
+            </div>
             }
             <SignInForm onSubmit={onSubmit} changeActive={changeActive}/>
             {activePopup &&
             <Popup changeActive={changeActive} signInWithPopupThunk={props.signInWithPopupThunk}/>
             }
-            {props.errors.message &&  <h5 className='container red lighten-1 error'>{props.errors.message}</h5>}
+            {props.errors.errorsSignIn.message && <h5 className='container red lighten-1 error'>
+                {props.errors.errorsSignIn.message}</h5>}
         </>
     )
 }

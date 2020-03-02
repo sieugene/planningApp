@@ -1,19 +1,24 @@
 import React from 'react'
 import {Field, reduxForm} from 'redux-form'
+import {required} from "../../assets/utils/ValidationForm";
+import {fieldInput} from "../../assets/utils/FieldsCustom";
 
-let SignUpForm = props => {
-    const {handleSubmit} = props
+
+let SignUpForm = (props) => {
+    const {error, handleSubmit} = props
     return (
-        <form className="col s12" onSubmit={handleSubmit}>
+        <form className="col s12 formSign" onSubmit={handleSubmit}>
+            {error && <strong>{error}</strong>}
             <div className="container">
                 <div className="row">
                     <div className="input-field col s6">
-                        <Field placeholder="Placeholder" id="firstName" type="text" component="input"
-                               className="validate" name="firstName"/>
+                        <Field id="firstName" type="text" component={fieldInput}
+                               className="validate" name="firstName" validate={[required]}/>
                         <label htmlFor="first_name">First Name</label>
                     </div>
                     <div className="input-field col s6">
-                        <Field id="lastName" type="text" className="validate" component="input" name="lastName"/>
+                        <Field id="lastName" type="text" className="validate" component={fieldInput} name="lastName"
+                               validate={[required]}/>
                         <label htmlFor="last_name">Last Name</label>
                     </div>
                 </div>
@@ -30,11 +35,11 @@ let SignUpForm = props => {
                     </div>
                 </div>
                 <button className='waves-effect red darken-4 btn-small' type="submit">Sign Up</button>
-                <a className='waves-effect green btn-small btn-margin' type="submit"
+                <p className='waves-effect green btn-small btn-margin' type="submit"
                    onClick={() => {
                        props.changeActive(true)
                    }}>Quick sign up
-                </a>
+                </p>
             </div>
         </form>
     )

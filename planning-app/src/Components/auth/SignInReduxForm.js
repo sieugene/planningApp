@@ -4,7 +4,7 @@ import {Field, reduxForm} from 'redux-form'
 let SignInForm = props => {
     const {handleSubmit} = props
     return (
-        <form className="col s12" onSubmit={handleSubmit}>
+        <form className="col s12 formSign" onSubmit={handleSubmit}>
             <div className="container">
                 <div className="row">
                     <div className="input-field col s12">
@@ -19,11 +19,11 @@ let SignInForm = props => {
                     </div>
                 </div>
                 <button className='waves-effect red darken-4 btn-small' type="submit">Login</button>
-                <a className='waves-effect green btn-small btn-margin' type="submit"
+                <p className='waves-effect green btn-small btn-margin' type="submit"
                    onClick={() => {
                        props.changeActive(true)
                    }}>Quick access
-                </a>
+                </p>
             </div>
         </form>
     )

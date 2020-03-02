@@ -7,7 +7,8 @@ const Popup = (props) => {
             <div className="overlay"></div>
             <div className="container quick__popup">
                 <h5>Quick access</h5>
-                <img src={googleIcon} className='icon__google' onClick={() => {
+                <hr/>
+                <img src={googleIcon} className='icon__google' alt={'icon'} onClick={() => {
                     props.signInWithPopupThunk()
                 }}/>
                 <span className='close' onClick={() => {

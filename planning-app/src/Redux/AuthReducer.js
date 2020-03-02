@@ -2,12 +2,15 @@
 import firebase from 'firebase'
 
 const IS_LOADED = 'IS_LOADED'
-const SET_ERRORS = 'SET_ERRORS'
-
+const SET_ERRORS_SIGN_IN = 'SET_ERRORS'
+const SET_ERRORS_SIGN_UP = 'SET_ERRORS_SIGN_UP'
 
 let initialState = {
     isLoaded: false,
-    errors: {}
+    errors: {
+        errorsSignIn: {},
+        errorsSignUp: {}
+    },
 }
 
 
@@ -19,10 +22,16 @@ const authReducer = (state = initialState, action) => {
                 isLoaded: action.load
             }
         }
-        case SET_ERRORS: {
+        case SET_ERRORS_SIGN_IN: {
             return {
                 ...state,
-                errors: action.err
+                errors: {...state.errors, errorsSignIn: action.err }
+            }
+        }
+        case SET_ERRORS_SIGN_UP: {
+            return {
+                ...state,
+                errors: {...state.errors, errorsSignUp: action.err}
             }
         }
         default:
@@ -35,10 +44,14 @@ const toggleLoadingAC = (load) => {
         type: IS_LOADED, load
     }
 }
-
-const setErrorsAC = (err) => {
+const setErrorsSignInAC = (err) => {
     return {
-        type: SET_ERRORS, err
+        type: SET_ERRORS_SIGN_IN, err
+    }
+}
+export const setErrorsSignUpAC = (err) => {
+    return {
+        type: SET_ERRORS_SIGN_UP, err
     }
 }
 export const authThunkCreator = (credentials) => {
@@ -53,7 +66,7 @@ export const authThunkCreator = (credentials) => {
         }).catch((err) => {
             console.log('Some errors in auth')
             dispatch(toggleLoadingAC(false))
-            dispatch(setErrorsAC(err))
+            dispatch(setErrorsSignInAC(err))
         })
     }
 }
@@ -67,6 +80,7 @@ export const signOutThunkCreator = () => (dispatch) => {
 
 export const signUpThunkCreator = (newUser) => {
     return (dispatch, getState, {getFirebase, getFirestore}) => {
+        dispatch(toggleLoadingAC(true));
         const firestore = getFirestore();
         firebase.auth().createUserWithEmailAndPassword(newUser.email, newUser.password).then((response) => {
             return firestore.collection('users').doc(response.user.uid).set({
@@ -75,29 +89,36 @@ export const signUpThunkCreator = (newUser) => {
                 initials: newUser.firstName[0] + newUser.lastName[0]
             })
         }).then((response) => {
-            debugger
-            console.log('hey check')
-            console.log(response)
+            dispatch(toggleLoadingAC(false));
         }).catch((err) => {
-            console.log(err)
+            dispatch(setErrorsSignUpAC(err))
+            dispatch(toggleLoadingAC(false));
         })
     }
 }
 
 export const signInWithPopupThunkCreator = () => {
     return (dispatch, getState, {getFirebase, getFirestore}) => {
+        dispatch(toggleLoadingAC(true));
         firebase.auth().getRedirectResult().then((result) => {
             if (result.credential) {
                 // This gives you a Google Access Token.
                 //let token = result.credential.accessToken;
             }
             //let user = result.user;
-        });
+            dispatch(toggleLoadingAC(false));
+        }).catch((err) => {
+            dispatch(setErrorsSignUpAC(err))
+            dispatch(toggleLoadingAC(false));
+        })
 // Start a sign in process for an unauthenticated user.
         let provider = new firebase.auth.GoogleAuthProvider();
         provider.addScope('profile');
         provider.addScope('email');
-        firebase.auth().signInWithPopup(provider).then((result) => {});
+        firebase.auth().signInWithPopup(provider).then((result) => {
+        }).catch((err) => {
+            dispatch(setErrorsSignUpAC(err))
+        })
     }
 }
 
