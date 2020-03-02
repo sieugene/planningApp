@@ -4,7 +4,8 @@ import CreateProjectForm from "./CreateProjectReduxForm";
 
 const CreateProject = (props) => {
     debugger
-    const firstName = !props.profile.firstName ? props.authInfo.displayName : 'Anonymous';
+    const firstName = !props.profile.firstName ? props.authInfo.displayName : !!props.profile.firstName &&
+        props.profile.firstName;
     const lastName = !props.profile.lastName && ' ';
     const uid = props.authInfo.uid;
     let onSubmit = (values) => {
