@@ -20,7 +20,19 @@ exports.projectCreated = functions.firestore.document('projects/{projectId}').on
     const notification = {
         content: 'Added a new project',
         user: `${project.authorFirstName} ${project.authorLastName}`,
-        admin: admin.firestore.FieldValue.serverTimestamp()
+        time: admin.firestore.FieldValue.serverTimestamp()
     }
     return createNotification(notification);
+})
+
+exports.userJoined = functions.auth.user().onCreate(user => {
+    return admin.firestore().collection('users').doc(user.uid).get().then(doc => {
+        const newUser = doc.data();
+        const notification = {
+            content: 'Joined the app',
+            user: `${newUser.firstName}`,
+            time: admin.firestore.FieldValue.serverTimestamp()
+        }
+        return createNotification(notification);
+    })
 })

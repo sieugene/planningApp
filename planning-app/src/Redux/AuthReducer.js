@@ -115,7 +115,17 @@ export const signInWithPopupThunkCreator = () => {
         let provider = new firebase.auth.GoogleAuthProvider();
         provider.addScope('profile');
         provider.addScope('email');
+        const firestore = getFirestore();
         firebase.auth().signInWithPopup(provider).then((result) => {
+            //if is new user then adding to collection
+            if(result.additionalUserInfo.isNewUser) {
+                const initials = result.additionalUserInfo.profile.name.split(/\s+/).map(x => x.charAt(0)).join('');
+                return firestore.collection('users').doc(result.user.uid).set({
+                    firstName: result.additionalUserInfo.profile.given_name,
+                    lastName: result.additionalUserInfo.profile.family_name,
+                    initials: initials
+                })
+            }
         }).catch((err) => {
             dispatch(setErrorsSignUpAC(err))
         })
