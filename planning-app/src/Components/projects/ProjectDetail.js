@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
+import moment from "moment";
 
 const ProjectDetail = (props) => {
     let result = undefined;
@@ -20,7 +21,7 @@ const ProjectDetail = (props) => {
                     </div>
                     <div className="card-action">
                         {!!result[0].createdAt ?
-                            new Date(result[0].createdAt.seconds * 1000).toUTCString()
+                           moment( result[0].createdAt.toDate()).calendar()
                             :
                             ''
                         }
