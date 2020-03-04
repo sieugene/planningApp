@@ -27,7 +27,7 @@ export default compose(
     connect(mapStateToProps, {}),
     firestoreConnect([
             {collection: 'projects'},
-            {collection: 'notification',orderBy:('time')}
+            {collection: 'notification', limit: 3, orderBy: ['time', 'desc']}
         ]
     )
 )(DashboardContainer)

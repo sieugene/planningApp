@@ -7,7 +7,7 @@ const Notifications = ({notification}) => {
         <div className='section'>
             <ul className='collection with-header'>
                 <li className="collection-header"><span className='title'>Notifications</span></li>
-                {notification && notification.slice().reverse().map((n) => {
+                {notification && notification.map((n) => {
                     return <li className="collection-item" key={n.id}>
                             <a className='red-text text-darken-1'>{n.user}</a>
                             <p>{n.content}</p>
