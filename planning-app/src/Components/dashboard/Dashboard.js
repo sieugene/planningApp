@@ -11,7 +11,7 @@ const DashBoard = (props) => {
                     <ProjectList {...props}/>
                 </div>
                 <div className="col s12 m5 offset-m1">
-                    <Notifications/>
+                    <Notifications notification={props.notification}/>
                 </div>
             </div>
         </div>

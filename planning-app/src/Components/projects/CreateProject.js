@@ -5,7 +5,7 @@ import CreateProjectForm from "./CreateProjectReduxForm";
 const CreateProject = (props) => {
     const firstName = !props.profile.firstName ? props.authInfo.displayName : !!props.profile.firstName &&
         props.profile.firstName;
-    const lastName = !props.profile.lastName && ' ';
+    const lastName = !props.profile.lastName ? ' ' : props.profile.lastName;
     const uid = props.authInfo.uid;
     let onSubmit = (values) => {
         props.createProjectThunk(firstName, lastName, uid, values)

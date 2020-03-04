@@ -1,17 +1,20 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
+import moment from "moment";
 
-const Notifications = (props) => {
-    return(
+const Notifications = ({notification}) => {
+    return (
         <div className='section'>
-            <div className="card blue-grey darken-1 project-summary">
-                <div className="card-content white-text">
-                    <span className="card-title">Notification</span>
-                    <p>Notification</p>
-                    <p>Notification</p>
-                    <p>Notification</p>
-                </div>
-            </div>
+            <ul className='collection with-header'>
+                <li className="collection-header"><span className='title'>Notifications</span></li>
+                {notification && notification.slice().reverse().map((n) => {
+                    return <li className="collection-item" key={n.id}>
+                            <a className='red-text text-darken-1'>{n.user}</a>
+                            <p>{n.content}</p>
+                            <p className='grey-text'>{moment(n.time.toDate()).fromNow()}</p>
+                        </li>
+                })}
+            </ul>
         </div>
     )
 }
