@@ -10,7 +10,7 @@ const ProjectList = (props) => {
         <div className="project-list section">
             {props.projects.map(p =>
                 <ProjectSummary id={p.id} title={p.title} content={p.content} key={p.id} userId={props.userId}
-                                authorId={p.authorId}
+                                authorId={p.authorId} deleteProjectThunk={props.deleteProjectThunk}
                 />
             )}
         </div>

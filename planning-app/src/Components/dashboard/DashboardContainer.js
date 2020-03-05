@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import DashBoard from "./Dashboard";
 import {compose} from "redux";
 import {firestoreConnect} from "react-redux-firebase";
-
+import {deleteProjectThunkCreator} from "../../Redux/ProjectReducer";
 
 
 const DashboardContainer = (props) => {
@@ -25,9 +25,11 @@ const mapStateToProps = (state) => {
 
 
 export default compose(
-    connect(mapStateToProps, {}),
+    connect(mapStateToProps, {
+        deleteProjectThunk: deleteProjectThunkCreator
+    }),
     firestoreConnect([
-            {collection: 'projects',orderBy: ['createdAt', 'desc']},
+            {collection: 'projects', orderBy: ['createdAt', 'desc']},
             {collection: 'notification', limit: 3, orderBy: ['time', 'desc']}
         ]
     )

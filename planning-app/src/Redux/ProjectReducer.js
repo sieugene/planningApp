@@ -89,4 +89,15 @@ export const updateProjectThunkCreator = (firstName, lastName, uid, project, pro
     }
 }
 
+export const deleteProjectThunkCreator = (projectId) => {
+    return (dispatch, getState, {getFirebase, getFirestore}) => {
+        const firestore = getFirestore();
+        firestore.collection('projects').doc(projectId).delete().then((response) => {
+        })
+            .catch((err) => {
+            })
+    }
+}
+
+
 export default projectReducer
