@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from "react-redux";
 import CreateProject from "./CreateProject";
-import {createProjectAC, createProjectThunkCreator} from "../../Redux/ProjectReducer";
+import {createProjectAC, createProjectThunkCreator} from "../../../Redux/ProjectReducer";
 import {compose} from "redux";
 
 

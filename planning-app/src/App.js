@@ -7,8 +7,9 @@ import ProjectDetail from "./Components/projects/ProjectDetail";
 import SignIn from "./Components/auth/SignIn";
 import SignUp from "./Components/auth/SignUp";
 import DashboardContainer from "./Components/dashboard/DashboardContainer";
-import CreateProjectContainer from "./Components/projects/CreateProjectContainer";
+import CreateProjectContainer from "./Components/projects/CreateProject/CreateProjectContainer";
 import {connect} from "react-redux";
+import UpdateProjectContainer from "./Components/projects/UpdateProject/UpdateProjectContainer";
 
 
 function App(props) {
@@ -23,6 +24,7 @@ function App(props) {
             <Route path='/login' render={() => (<SignIn/>)}/>
             <Route path='/signup' render={() => (<SignUp/>)}/>
             <Route path='/create' render={() => (<CreateProjectContainer/>)}/>
+            <Route path='/update/:id' render={(props) => (<UpdateProjectContainer {...props}/>)}/>
         </div>
     );
 }

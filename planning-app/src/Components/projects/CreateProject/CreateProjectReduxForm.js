@@ -1,7 +1,7 @@
 import React from 'react'
 import {Field, reduxForm} from 'redux-form'
-import {minLength10, required} from "../../assets/utils/ValidationForm";
-import {fieldInput} from "../../assets/utils/FieldsCustom";
+import {minLength10, required} from "../../../assets/utils/ValidationForm";
+import {fieldInput} from "../../../assets/utils/FieldsCustom";
 
 let CreateProjectForm = props => {
     const {handleSubmit} = props

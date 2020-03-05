@@ -3,13 +3,16 @@ import ProjectSummary from "./ProjectSummary";
 
 
 const ProjectList = (props) => {
-    if(!props.projects){
+    if (!props.projects) {
         return <div>No data or loading</div>
     }
-    return(
+    return (
         <div className="project-list section">
-            { props.projects.map(p => 
-            <ProjectSummary id={p.id} title={p.title} content={p.content} key={p.id}/> ) }
+            {props.projects.map(p =>
+                <ProjectSummary id={p.id} title={p.title} content={p.content} key={p.id} userId={props.userId}
+                                authorId={p.authorId}
+                />
+            )}
         </div>
     )
 }

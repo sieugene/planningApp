@@ -69,4 +69,24 @@ export const createProjectThunkCreator = (firstName, lastName, uid, project) => 
     }
 }
 
+
+export const updateProjectThunkCreator = (firstName, lastName, uid, project, projectId) => {
+    return (dispatch, getState, {getFirebase, getFirestore}) => {
+        dispatch(toggleLoadingAC(true));
+        const firestore = getFirestore();
+        firestore.collection('projects').doc(`/${projectId}`).set({
+            ...project,
+            authorFirstName: firstName,
+            authorLastName: lastName,
+            authorId: uid,
+            createdAt: new Date()
+        }).then((response) => {
+            dispatch(toggleLoadingAC(false));
+        }).catch((err) => {
+            dispatch(setErrorsAC(err))
+            dispatch(toggleLoadingAC(true));
+        })
+    }
+}
+
 export default projectReducer

@@ -18,7 +18,8 @@ const DashboardContainer = (props) => {
 const mapStateToProps = (state) => {
     return {
         projects: state.firestore.ordered.projects,
-        notification: state.firestore.ordered.notification
+        notification: state.firestore.ordered.notification,
+        userId: state.firebase.auth.uid
     }
 }
 
