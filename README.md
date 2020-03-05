@@ -1,7 +1,7 @@
 ## Briefly about what it is?
 > This is a test CRUD application using firebase.
 Using libraries: `React and Redux (Thunk,redux-form,react-redux-firebase,redux-firestore,moment,materialize-css,firebase).`
-## Link to app: none
+## Link to app: https://sieugene-planning.firebaseapp.com/
 ##### `API: https://firebase.google.com/docs`
 At this point, the user can: 
  - Login 
