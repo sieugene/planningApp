@@ -1,13 +1,17 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import SignedInLinks from "./SignedInLinks";
 import SignedOutLinks from "./SignedOutLinks";
-import {NavLink} from "react-router-dom";
+import {NavLink, withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import logo from "./../../assets/sieugene.png"
+import {compose} from "redux";
 
 const Navbar = (props) => {
     let showLinks = !props.userId ? <SignedOutLinks/> : <SignedInLinks profile={props.profile}/>
     const [activeMenu, toggleActive] = useState(true)
+    useEffect(() => {
+        toggleActive(true)
+    },[props.history.location.pathname])
     let addClassName = !activeMenu ? ' active' : ''
     return (
         <div className="navbar-fixed">
@@ -43,4 +47,7 @@ let mapStateToProps = (state) => {
         profile: state.firebase.profile
     }
 }
-export default connect(mapStateToProps, {})(Navbar)
+export default compose(
+    connect(mapStateToProps, {}),
+    withRouter
+)(Navbar)
