@@ -13,8 +13,8 @@ var firebaseConfig = {
     projectId: "sieugene-planning",
     storageBucket: "sieugene-planning.appspot.com",
     messagingSenderId: "679197090771",
-    appId: "1:679197090771:web:f892063d70d56d62f8c526",
-    measurementId: "G-K7MM95J0QW"
+    appId: "1:679197090771:web:96710f3d229cf8abf8c526",
+    measurementId: "G-4ZV7XK6W2F"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);

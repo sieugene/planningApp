@@ -7,11 +7,11 @@ import logo from "./../../assets/sieugene.png"
 import {compose} from "redux";
 
 const Navbar = (props) => {
-    let showLinks = !props.userId ? <SignedOutLinks/> : <SignedInLinks profile={props.profile}/>
+    let showLinks = !props.userId ? <SignedOutLinks/> : <SignedInLinks profile={props.profile} auth={props.auth}/>
     const [activeMenu, toggleActive] = useState(true)
     useEffect(() => {
         toggleActive(true)
-    },[props.history.location.pathname])
+    }, [props.history.location.pathname])
     let addClassName = !activeMenu ? ' active' : ''
     return (
         <div className="navbar-fixed">
@@ -44,7 +44,8 @@ const Navbar = (props) => {
 let mapStateToProps = (state) => {
     return {
         userId: state.firebase.auth.uid,
-        profile: state.firebase.profile
+        profile: state.firebase.profile,
+        auth: state.firebase.auth
     }
 }
 export default compose(

@@ -143,3 +143,29 @@ code {
         margin-top: 52px;
     }
 }
+
+.pre__card{
+    background: #e26e73bd;
+    padding: 20px;
+}
+.profile{
+    margin-top: 15px !important;
+}
+.default__img__block{
+    height: 30vh;
+    width: 100%;
+    overflow: hidden;
+}
+.default__img__block img{
+    max-height: 30vh;
+    max-width: 100%;
+}
+.pre__card .card{
+    position: relative;
+    margin: .5rem 0 1rem 0;
+    background-color: #fff;
+    transition: none;
+    border-radius: 2px;
+    background: transparent;
+    box-shadow: none !important;
+}

@@ -10,6 +10,8 @@ import DashboardContainer from "./Components/dashboard/DashboardContainer";
 import CreateProjectContainer from "./Components/projects/CreateProject/CreateProjectContainer";
 import {connect} from "react-redux";
 import UpdateProjectContainer from "./Components/projects/UpdateProject/UpdateProjectContainer";
+import ProfileContainer from "./Components/Profile/ProfileContainer";
+import UsersContainer from "./Components/User/UsersContainer";
 
 
 function App(props) {
@@ -25,6 +27,8 @@ function App(props) {
             <Route path='/signup' render={() => (<SignUp/>)}/>
             <Route path='/create' render={() => (<CreateProjectContainer/>)}/>
             <Route path='/update/:id' render={(props) => (<UpdateProjectContainer {...props}/>)}/>
+            <Route path='/profile' render={(props) => (<ProfileContainer {...props}/>)}/>
+            <Route path='/user/:id' render={(props) => (<UsersContainer {...props}/>)}/>
         </div>
     );
 }
