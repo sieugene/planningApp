@@ -5,13 +5,14 @@ import Users from "./User";
 
 
 const UsersContainer = (props) => {
+    debugger
     let users = props.users
     let currentUser = undefined;
-    if (!!users) {
+    if (!!users && users.length >= 2) {
         currentUser = users.filter(users => users.id === props.match.params.id);
     }
     return (
-        <Users users={users} currentUser={currentUser}/>
+        <Users currentUser={currentUser}/>
     )
 }
 
