@@ -93,9 +93,37 @@ export const deleteProjectThunkCreator = (projectId) => {
     return (dispatch, getState, {getFirebase, getFirestore}) => {
         const firestore = getFirestore();
         firestore.collection('projects').doc(projectId).delete().then((response) => {
+        }).catch((err) => {
+            dispatch(setErrorsAC(err))
         })
-            .catch((err) => {
-            })
+    }
+}
+
+export const addCommentThunkCreator = (firstName, id, comment, projectId) => {
+    return (dispatch, getState, {getFirebase, getFirestore}) => {
+        dispatch(toggleLoadingAC(true));
+        const firestore = getFirestore();
+        firestore.collection('comments').add({
+            ...comment,
+            userFirstName: firstName,
+            projectId: projectId,
+            userId: id,
+            createdAt: new Date()
+        }).then(() => {
+            dispatch(toggleLoadingAC(false))
+        }).catch((err) => {
+            dispatch(setErrorsAC(err))
+            dispatch(toggleLoadingAC(false))
+        })
+    }
+}
+export const deleteCommentThunkCreator = (commentsId) => {
+    return (dispatch, getState, {getFirebase, getFirestore}) => {
+        const firestore = getFirestore();
+        firestore.collection('comments').doc(commentsId).delete().then((response) => {
+        }).catch((err) => {
+            dispatch(setErrorsAC(err))
+        })
     }
 }
 

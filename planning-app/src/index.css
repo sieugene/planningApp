@@ -86,17 +86,26 @@ code {
     display: flex;
     flex-direction: column;
 }
+.editCommentPopup{
+    position: absolute;
+    right: 0;
+    padding: 10px;
+    border-radius: 10px 0px 0px 10px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+}
 
-.editPostPopup .material-icons {
+.editPostPopup .material-icons, .editCommentPopup .material-icons {
     padding-bottom: 10px;
     cursor: pointer;
 }
 
-.editPostPopup p {
+.editPostPopup p,.editCommentPopup p {
     margin: 0;
 }
 
-.editPostPopup a {
+.editPostPopup a, .editCommentPopup a {
     margin-bottom: 10px;
 }
 
@@ -168,4 +177,11 @@ code {
     border-radius: 2px;
     background: transparent;
     box-shadow: none !important;
+}
+.collection-item{
+    word-wrap: break-word;
+}
+.commentForm{
+    padding: 10px;
+    border: 1px solid aliceblue;
 }
