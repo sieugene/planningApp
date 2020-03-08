@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import defaultImg from "./../../assets/default__img.png"
 import moment from "moment";
 
@@ -10,7 +10,7 @@ const Profile = (props) => {
                     <div className="pre__card">
                         <div className="card">
                             <div className="default__img__block">
-                                <img src={defaultImg}/>
+                                <img src={defaultImg} alt='userImage'/>
                             </div>
                         </div>
                     </div>

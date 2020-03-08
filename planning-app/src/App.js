@@ -12,6 +12,8 @@ import {connect} from "react-redux";
 import UpdateProjectContainer from "./Components/projects/UpdateProject/UpdateProjectContainer";
 import ProfileContainer from "./Components/Profile/ProfileContainer";
 import UsersContainer from "./Components/User/UsersContainer";
+import {firestoreConnect} from "react-redux-firebase";
+import {compose} from "redux";
 
 
 function App(props) {
@@ -35,8 +37,11 @@ function App(props) {
 
 let mapStateToProps = (state) => {
     return {
-        isLoadedAuth: state.firebase.auth.isLoaded
+        isLoadedAuth: state.firebase.auth.isLoaded,
+        users: state.firestore.ordered.users
     }
 }
 
-export default connect(mapStateToProps, {})(App);
+export default compose(connect(mapStateToProps, {}),
+    firestoreConnect([{collection: 'users'}])
+)(App);

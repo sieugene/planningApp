@@ -3,7 +3,6 @@ import defaultImg from "../../assets/default__img.png";
 import moment from "moment";
 
 const Users = (props) => {
-    debugger
     if(!props.currentUser){
         return <div>wait</div>
     }
@@ -14,7 +13,7 @@ const Users = (props) => {
                     <div className="pre__card">
                         <div className="card">
                             <div className="default__img__block">
-                                <img src={defaultImg}/>
+                                <img src={defaultImg} alt='img'/>
                             </div>
                         </div>
                     </div>

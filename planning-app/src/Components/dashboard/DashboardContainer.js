@@ -30,8 +30,7 @@ export default compose(
     }),
     firestoreConnect([
             {collection: 'projects', orderBy: ['createdAt', 'desc']},
-            {collection: 'notification', limit: 3, orderBy: ['time', 'desc']},
-            {collection: 'users'}
+            {collection: 'notification', limit: 3, orderBy: ['time', 'desc']}
         ]
     )
 )(DashboardContainer)

@@ -24,6 +24,5 @@ const ProjectSummary = (props) => {
     )
 }
 
-
 export default ProjectSummary
 
