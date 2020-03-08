@@ -1,0 +1,177 @@
+[debug] [2020-03-08T17:58:51.795Z] ----------------------------------------------------------------------
+[debug] [2020-03-08T17:58:51.797Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Eugene\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2020-03-08T17:58:51.798Z] CLI Version:   7.14.0
+[debug] [2020-03-08T17:58:51.798Z] Platform:      win32
+[debug] [2020-03-08T17:58:51.798Z] Node Version:  v12.11.1
+[debug] [2020-03-08T17:58:51.799Z] Time:          Sun Mar 08 2020 20:58:51 GMT+0300 (GMT+03:00)
+[debug] [2020-03-08T17:58:51.799Z] ----------------------------------------------------------------------
+[debug] [2020-03-08T17:58:51.799Z] 
+[debug] [2020-03-08T17:58:51.809Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-03-08T17:58:51.809Z] > authorizing via signed-in user
+[debug] [2020-03-08T17:58:51.810Z] [iam] checking project sieugene-planning for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-03-08T17:58:51.811Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/sieugene-planning:testIamPermissions  
+
+[debug] [2020-03-08T17:58:52.958Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:58:52.960Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/sieugene-planning  
+ 
+[debug] [2020-03-08T17:58:53.337Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'sieugene-planning'...
+[info] 
+[info] i  deploying functions, hosting
+[debug] [2020-03-08T17:58:56.059Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "8"
+  },
+  "dependencies": {
+    "firebase-admin": "^8.6.0",
+    "firebase-functions": "^3.3.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.1.6"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2020-03-08T17:58:56.061Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/sieugene-planning/services/cloudfunctions.googleapis.com  
+ 
+[debug] [2020-03-08T17:58:56.061Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/sieugene-planning/services/runtimeconfig.googleapis.com  
+ 
+[debug] [2020-03-08T17:58:57.288Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:58:57.364Z] <<< HTTP RESPONSE 200
+[info] +  functions: all necessary APIs are enabled
+[debug] [2020-03-08T17:58:57.366Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/sieugene-planning/adminSdkConfig  
+ 
+[debug] [2020-03-08T17:58:57.691Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:58:57.695Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/sieugene-planning/versions  
+
+[debug] [2020-03-08T17:58:59.678Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2020-03-08T17:58:59.683Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/sieugene-planning/configs  
+ 
+[debug] [2020-03-08T17:59:01.179Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (26.95 KB) for uploading
+[debug] [2020-03-08T17:59:01.375Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/sieugene-planning/locations/us-central1/functions:generateUploadUrl  
+ 
+[debug] [2020-03-08T17:59:02.273Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:02.274Z] >>> HTTP REQUEST PUT https://storage.googleapis.com/gcf-upload-us-central1-f3b14b43-8aa4-4a11-b6e0-3b8ace51d63c/fc5fde1b-69b8-4947-b4a2-a2e5c6e33791.zip?GoogleAccessId=service-679197090771@gcf-admin-robot.iam.gserviceaccount.com&Expires=1583692141&Signature=aOZkAqwI9Oum0IKfOb5OZvUdw7FXGFbyOhSAqcfOrtTfD%2FXYtLUGowsrNr6A68b9EAZnrX4Zs1DMt8XRPTGsvsXnY8jd27U%2FvMtFVnrRUmp9Jo0g0Ba5INrQP%2FLrYGIn0fdPTdd8v3osLNcsml1f7eSor9oVj6XzPbhage4dKvxkXWgJm4iR5t5JF6oIWv7E16LF8uDImMoLFx%2B9cbDNTihim8UimWzZ7EFs%2BBUBWJvFL0nb6rNwR76Xu6sviiYBME6yGd7V1YL4Hgu9uqdThH5Wos9hpmcFp6YtyY7DwTad93bVI%2FpVoW66loDOSbmpMKfH2BhzXaINwN4nxFw98A%3D%3D  
+ <request body omitted>
+[debug] [2020-03-08T17:59:02.680Z] <<< HTTP RESPONSE 200
+[info] +  functions: functions folder uploaded successfully
+[info] i  hosting[sieugene-planning]: beginning deploy...
+[info] i  hosting[sieugene-planning]: found 22 files in dist
+[debug] [2020-03-08T17:59:03.795Z] [hosting] hash cache [ZGlzdA] stored for 22 files
+[debug] [2020-03-08T17:59:03.796Z] [hosting][hash queue][FINAL]
+[debug] [2020-03-08T17:59:03.796Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/sieugene-planning/versions/f1a85fcf5db7a6a3:populateFiles  
+ <request body omitted>
+[debug] [2020-03-08T17:59:05.284Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:05.298Z] [hosting][populate queue][FINAL]
+[debug] [2020-03-08T17:59:05.298Z] [hosting] uploads queued: 6
+[debug] [2020-03-08T17:59:08.767Z] [hosting][upload queue][FINAL]
+[info] +  hosting[sieugene-planning]: file upload complete
+[debug] [2020-03-08T17:59:08.770Z] [hosting] deploy completed after 6088ms
+[debug] [2020-03-08T17:59:08.914Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/sieugene-planning/locations/-/functions  
+ 
+[debug] [2020-03-08T17:59:09.681Z] <<< HTTP RESPONSE 200
+[info] i  functions: updating Node.js 8 function helloWorld(us-central1)...
+[debug] [2020-03-08T17:59:09.692Z] Trigger is:  {"httpsTrigger":{}}
+[info] i  functions: updating Node.js 8 function projectCreated(us-central1)...
+[debug] [2020-03-08T17:59:09.694Z] Trigger is:  {"eventTrigger":{"resource":"projects/sieugene-planning/databases/(default)/documents/projects/{projectId}","eventType":"providers/cloud.firestore/eventTypes/document.create","service":"firestore.googleapis.com"}}
+[info] i  functions: updating Node.js 8 function userJoined(us-central1)...
+[debug] [2020-03-08T17:59:09.696Z] Trigger is:  {"eventTrigger":{"resource":"projects/sieugene-planning","eventType":"providers/firebase.auth/eventTypes/user.create","service":"firebaseauth.googleapis.com"}}
+[debug] [2020-03-08T17:59:09.698Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/sieugene-planning/services/cloudscheduler.googleapis.com  
+ 
+[debug] [2020-03-08T17:59:10.869Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:10.874Z] >>> HTTP REQUEST PATCH https://cloudfunctions.googleapis.com/v1/projects/sieugene-planning/locations/us-central1/functions/helloWorld {"updateMask":"sourceUploadUrl,name,labels,runtime,httpsTrigger"} 
+
+[debug] [2020-03-08T17:59:10.879Z] >>> HTTP REQUEST PATCH https://cloudfunctions.googleapis.com/v1/projects/sieugene-planning/locations/us-central1/functions/projectCreated {"updateMask":"sourceUploadUrl,name,labels,runtime,eventTrigger.resource,eventTrigger.eventType,eventTrigger.service"} 
+
+[debug] [2020-03-08T17:59:10.881Z] >>> HTTP REQUEST PATCH https://cloudfunctions.googleapis.com/v1/projects/sieugene-planning/locations/us-central1/functions/userJoined {"updateMask":"sourceUploadUrl,name,labels,runtime,eventTrigger.resource,eventTrigger.eventType,eventTrigger.service"} 
+
+[debug] [2020-03-08T17:59:11.636Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:11.641Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:11.649Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:11.653Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/sieugene-planning/locations/-/functions  
+ 
+[debug] [2020-03-08T17:59:12.410Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:12.411Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/c2lldWdlbmUtcGxhbm5pbmcvdXMtY2VudHJhbDEvaGVsbG9Xb3JsZC9UX0tZTFppTVVaOA  
+ 
+[debug] [2020-03-08T17:59:12.411Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/c2lldWdlbmUtcGxhbm5pbmcvdXMtY2VudHJhbDEvcHJvamVjdENyZWF0ZWQvcFdLVkdSMjU5aHc  
+ 
+[debug] [2020-03-08T17:59:12.412Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/c2lldWdlbmUtcGxhbm5pbmcvdXMtY2VudHJhbDEvdXNlckpvaW5lZC9VZF9SWVlNR05OOA  
+ 
+[debug] [2020-03-08T17:59:12.957Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:12.973Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:12.976Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:14.960Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/c2lldWdlbmUtcGxhbm5pbmcvdXMtY2VudHJhbDEvdXNlckpvaW5lZC9VZF9SWVlNR05OOA  
+ 
+[debug] [2020-03-08T17:59:14.981Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/c2lldWdlbmUtcGxhbm5pbmcvdXMtY2VudHJhbDEvaGVsbG9Xb3JsZC9UX0tZTFppTVVaOA  
+ 
+[debug] [2020-03-08T17:59:14.981Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/c2lldWdlbmUtcGxhbm5pbmcvdXMtY2VudHJhbDEvcHJvamVjdENyZWF0ZWQvcFdLVkdSMjU5aHc  
+ 
+[debug] [2020-03-08T17:59:15.522Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:15.531Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:15.558Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:17.523Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/c2lldWdlbmUtcGxhbm5pbmcvdXMtY2VudHJhbDEvcHJvamVjdENyZWF0ZWQvcFdLVkdSMjU5aHc  
+ 
+[debug] [2020-03-08T17:59:17.532Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/c2lldWdlbmUtcGxhbm5pbmcvdXMtY2VudHJhbDEvdXNlckpvaW5lZC9VZF9SWVlNR05OOA  
+ 
+[debug] [2020-03-08T17:59:17.560Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/c2lldWdlbmUtcGxhbm5pbmcvdXMtY2VudHJhbDEvaGVsbG9Xb3JsZC9UX0tZTFppTVVaOA  
+ 
+[debug] [2020-03-08T17:59:18.084Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:18.096Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:18.099Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:20.133Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/c2lldWdlbmUtcGxhbm5pbmcvdXMtY2VudHJhbDEvcHJvamVjdENyZWF0ZWQvcFdLVkdSMjU5aHc  
+ 
+[debug] [2020-03-08T17:59:20.134Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/c2lldWdlbmUtcGxhbm5pbmcvdXMtY2VudHJhbDEvdXNlckpvaW5lZC9VZF9SWVlNR05OOA  
+ 
+[debug] [2020-03-08T17:59:20.137Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/c2lldWdlbmUtcGxhbm5pbmcvdXMtY2VudHJhbDEvaGVsbG9Xb3JsZC9UX0tZTFppTVVaOA  
+ 
+[debug] [2020-03-08T17:59:20.707Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:20.707Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:20.712Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:22.708Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/c2lldWdlbmUtcGxhbm5pbmcvdXMtY2VudHJhbDEvaGVsbG9Xb3JsZC9UX0tZTFppTVVaOA  
+ 
+[debug] [2020-03-08T17:59:22.708Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/c2lldWdlbmUtcGxhbm5pbmcvdXMtY2VudHJhbDEvcHJvamVjdENyZWF0ZWQvcFdLVkdSMjU5aHc  
+ 
+[debug] [2020-03-08T17:59:22.714Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/c2lldWdlbmUtcGxhbm5pbmcvdXMtY2VudHJhbDEvdXNlckpvaW5lZC9VZF9SWVlNR05OOA  
+ 
+[debug] [2020-03-08T17:59:23.240Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:23.241Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:23.244Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:25.241Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/c2lldWdlbmUtcGxhbm5pbmcvdXMtY2VudHJhbDEvaGVsbG9Xb3JsZC9UX0tZTFppTVVaOA  
+ 
+[debug] [2020-03-08T17:59:25.242Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/c2lldWdlbmUtcGxhbm5pbmcvdXMtY2VudHJhbDEvdXNlckpvaW5lZC9VZF9SWVlNR05OOA  
+ 
+[debug] [2020-03-08T17:59:25.245Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/c2lldWdlbmUtcGxhbm5pbmcvdXMtY2VudHJhbDEvcHJvamVjdENyZWF0ZWQvcFdLVkdSMjU5aHc  
+ 
+[debug] [2020-03-08T17:59:25.777Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:25.781Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:25.784Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:27.778Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/c2lldWdlbmUtcGxhbm5pbmcvdXMtY2VudHJhbDEvdXNlckpvaW5lZC9VZF9SWVlNR05OOA  
+ 
+[debug] [2020-03-08T17:59:27.782Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/c2lldWdlbmUtcGxhbm5pbmcvdXMtY2VudHJhbDEvcHJvamVjdENyZWF0ZWQvcFdLVkdSMjU5aHc  
+ 
+[debug] [2020-03-08T17:59:27.787Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/c2lldWdlbmUtcGxhbm5pbmcvdXMtY2VudHJhbDEvaGVsbG9Xb3JsZC9UX0tZTFppTVVaOA  
+ 
+[debug] [2020-03-08T17:59:28.316Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:28.320Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:28.368Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:30.316Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/c2lldWdlbmUtcGxhbm5pbmcvdXMtY2VudHJhbDEvcHJvamVjdENyZWF0ZWQvcFdLVkdSMjU5aHc  
+ 
+[debug] [2020-03-08T17:59:30.322Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/c2lldWdlbmUtcGxhbm5pbmcvdXMtY2VudHJhbDEvdXNlckpvaW5lZC9VZF9SWVlNR05OOA  
+ 
+[debug] [2020-03-08T17:59:30.368Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/c2lldWdlbmUtcGxhbm5pbmcvdXMtY2VudHJhbDEvaGVsbG9Xb3JsZC9UX0tZTFppTVVaOA  
+ 
+[debug] [2020-03-08T17:59:30.864Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:30.868Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-08T17:59:30.919Z] <<< HTTP RESPONSE 200

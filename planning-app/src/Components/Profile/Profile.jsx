@@ -27,7 +27,7 @@ const Profile = (props) => {
                         <p>{props.profile.email}</p>
                         <p>{moment(new Date(props.profile.lastLoginAt * 1)).calendar()}</p>
                         <p>{moment(new Date
-                        (props.profile.createdAt * 1)).add(1, 'days')
+                        ((props.profile.createdAt - 86400000) * 1)).add(1, 'days')
                             .calendar()}
                         </p>
                     </div>
