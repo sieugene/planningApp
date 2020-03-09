@@ -86,7 +86,8 @@ code {
     display: flex;
     flex-direction: column;
 }
-.editCommentPopup{
+
+.editCommentPopup {
     position: absolute;
     right: 0;
     padding: 10px;
@@ -101,7 +102,7 @@ code {
     cursor: pointer;
 }
 
-.editPostPopup p,.editCommentPopup p {
+.editPostPopup p, .editCommentPopup p {
     margin: 0;
 }
 
@@ -153,23 +154,30 @@ code {
     }
 }
 
-.pre__card{
+.pre__card {
     background: #e26e73bd;
     padding: 20px;
 }
-.profile{
+
+.profile {
     margin-top: 15px !important;
 }
-.default__img__block{
-    height: 30vh;
+
+.default__img__block {
+    height: auto;
     width: 100%;
     overflow: hidden;
 }
-.default__img__block img{
-    max-height: 30vh;
+
+.default__img__block img {
     max-width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
-.pre__card .card{
+
+.pre__card .card {
     position: relative;
     margin: .5rem 0 1rem 0;
     background-color: #fff;
@@ -178,10 +186,12 @@ code {
     background: transparent;
     box-shadow: none !important;
 }
-.collection-item{
+
+.collection-item {
     word-wrap: break-word;
 }
-.commentForm{
+
+.commentForm {
     padding: 10px;
     border: 1px solid aliceblue;
 }

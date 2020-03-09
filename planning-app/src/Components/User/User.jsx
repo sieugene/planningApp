@@ -4,21 +4,24 @@ import moment from "moment";
 
 const Users = (props) => {
     if (!props.currentUser || props.currentUser.length === 0) {
-        return <div className="progress"><div className="indeterminate"></div></div>
+        return <div className="progress">
+            <div className="indeterminate"></div>
+        </div>
     }
+    const userImage = !!props.currentUser[0].photoURL ? props.currentUser[0].photoURL : defaultImg
     return (
         <div className='container profile'>
             <div className="row">
-                <div className="col l6">
+                <div className="col m4 s12 l6 xl6">
                     <div className="pre__card">
                         <div className="card">
                             <div className="default__img__block">
-                                <img src={defaultImg} alt='img'/>
+                                <img src={userImage} alt='img'/>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="col s12 l6 center-align">
+                <div className="col m8 s12 l6 xl6 center-align">
                     <h5> {props.currentUser[0].firstName} {props.currentUser[0].lastName}</h5>
                     <hr/>
                     <div className="col s3 left-align">

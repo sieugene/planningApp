@@ -9,6 +9,7 @@ import firebase from 'firebase/app'
 import {createFirestoreInstance, firestoreReducer, getFirestore, reduxFirestore} from "redux-firestore";
 
 
+
 let reducers = combineReducers({
     form: formReducer,
     auth: authReducer,

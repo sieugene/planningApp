@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import Profile from "./Profile";
 
 
+
 const ProfileContainer = (props) => {
     if(!props.profile.isLoaded){
         return <div>Loading...</div>
@@ -19,4 +20,5 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {})(ProfileContainer)
+export default connect(mapStateToProps, {
+})(ProfileContainer)
