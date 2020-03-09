@@ -17,4 +17,5 @@ At this point, the user can:
 ![demo](https://github.com/sieugene/planningApp/blob/master/planning-app/src/assets/gh_img/04.png?raw=true)
 ![demo](https://github.com/sieugene/planningApp/blob/master/planning-app/src/assets/gh_img/05.png?raw=true)
 ![demo](https://github.com/sieugene/planningApp/blob/master/planning-app/src/assets/gh_img/06.png?raw=true)
+![demo](https://github.com/sieugene/planningApp/blob/master/planning-app/src/assets/gh_img/07.png?raw=true)
 
