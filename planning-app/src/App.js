@@ -18,7 +18,7 @@ import {compose} from "redux";
 
 function App(props) {
     if (!props.isLoadedAuth) {
-        return <div>Loading...</div>
+        return  <div className="progress"><div className="indeterminate"></div></div>
     }
     return (
         <div className="App">

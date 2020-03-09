@@ -41,7 +41,7 @@ const ProjectDetail = (props) => {
                 </div>
             }
             {!!props.userId && <CommentForm onSubmit={onSubmit}/>}
-            {!commentsArray ? 'No comments' : <CommentContainer commentsArray={commentsArray}/>}
+            {!commentsArray || commentsArray.length === 0 ? 'No comments' : <CommentContainer commentsArray={commentsArray}/>}
         </div>
     )
 }

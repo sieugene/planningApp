@@ -86,7 +86,9 @@ export const signUpThunkCreator = (newUser) => {
             return firestore.collection('users').doc(response.user.uid).set({
                 firstName: newUser.firstName,
                 lastName: newUser.lastName,
-                initials: newUser.firstName[0] + newUser.lastName[0]
+                initials: newUser.firstName[0] + newUser.lastName[0],
+                photoURL: '',
+                createdAt: new Date()
             })
         }).then((response) => {
             dispatch(toggleLoadingAC(false));
@@ -123,7 +125,9 @@ export const signInWithPopupThunkCreator = () => {
                 return firestore.collection('users').doc(result.user.uid).set({
                     firstName: result.additionalUserInfo.profile.given_name,
                     lastName: result.additionalUserInfo.profile.family_name,
-                    initials: initials
+                    initials: initials,
+                    photoURL: '',
+                    createdAt: new Date()
                 })
             }
         }).catch((err) => {

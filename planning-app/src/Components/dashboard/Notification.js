@@ -5,7 +5,10 @@ const Notifications = ({notification}) => {
     return (
         <div className='section'>
             <ul className='collection with-header'>
-                <li className="collection-header"><span className='title'>Notifications</span></li>
+                <li className="collection-header"><span className='title'>
+                     <i className="material-icons left">notifications</i>
+                    Notifications
+                </span></li>
                 {notification && notification.map((n) => {
                     return <li className="collection-item" key={n.id}>
                         <p className='red-text text-darken-1'>{n.user}</p>

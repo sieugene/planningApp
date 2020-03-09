@@ -11,10 +11,8 @@ const SignedInLinks = (props) => {
         return firebase.updateProfile(configuration)
     }
     let configuration = {
-        photoURL: '',
         email: props.auth.email,
         lastLoginAt: props.auth.lastLoginAt,
-        createdAt: props.auth.createdAt,
     }
     useEffect(() => {
         firebaseUpdate(configuration);

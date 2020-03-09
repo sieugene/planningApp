@@ -3,6 +3,7 @@ import defaultImg from "./../../assets/default__img.png"
 import moment from "moment";
 
 const Profile = (props) => {
+    const userImage = !!props.profile.photoURL ? props.profile.photoURL : defaultImg
     return (
         <div className='container profile'>
             <div className="row">
@@ -10,7 +11,7 @@ const Profile = (props) => {
                     <div className="pre__card">
                         <div className="card">
                             <div className="default__img__block">
-                                <img src={defaultImg} alt='userImage'/>
+                                <img src={userImage} alt='userImage'/>
                             </div>
                         </div>
                     </div>
@@ -26,10 +27,7 @@ const Profile = (props) => {
                     <div className="col s9 right-align">
                         <p>{props.profile.email}</p>
                         <p>{moment(new Date(props.profile.lastLoginAt * 1)).calendar()}</p>
-                        <p>{moment(new Date
-                        ((props.profile.createdAt - 86400000) * 1)).add(1, 'days')
-                            .calendar()}
-                        </p>
+                        <p>{!!props.profile.createdAt ? moment(props.profile.createdAt.toDate()).calendar() : ''}</p>
                     </div>
                 </div>
             </div>

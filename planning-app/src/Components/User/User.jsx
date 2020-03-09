@@ -3,8 +3,8 @@ import defaultImg from "../../assets/default__img.png";
 import moment from "moment";
 
 const Users = (props) => {
-    if(!props.currentUser){
-        return <div>wait</div>
+    if (!props.currentUser || props.currentUser.length === 0) {
+        return <div className="progress"><div className="indeterminate"></div></div>
     }
     return (
         <div className='container profile'>
@@ -29,10 +29,7 @@ const Users = (props) => {
                     <div className="col s9 right-align">
                         <p>{props.currentUser[0].email}</p>
                         <p>{moment(new Date(props.currentUser[0].lastLoginAt * 1)).calendar()}</p>
-                        <p>{moment(new Date
-                        ((props.currentUser[0].createdAt - 86400000) * 1)).add(1, 'days')
-                            .calendar()}
-                        </p>
+                        <p>{!!props.currentUser[0].createdAt ? moment(props.currentUser[0].createdAt.toDate()).calendar() : ''}</p>
                     </div>
                 </div>
             </div>
